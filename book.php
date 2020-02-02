@@ -39,7 +39,7 @@
                 Book name
             </td>
             <td>
-                <input type="text" class="form-control" name="getBookTitle">
+                <input type="text" class="form-control" name="getName">
             </td>
         </tr>
         <tr>
@@ -92,7 +92,7 @@
 if(isset($_GET["submit"]))
 {
    $Bkcode=$_GET["getBookCode"];
-   $Bktitle=$_GET["getBookTitle"];
+   $Bkname=$_GET["getName"];
    $Author=$_GET["getAuthor"];
    $Description=$_GET["getDescription"];
    $Price=$_GET["getPrice"];
@@ -102,8 +102,8 @@ if(isset($_GET["submit"]))
    $Dbpassword="";
    $Dbname="library";
    $connection=new mysqli($Servername,$Dbusername,$Dbpassword,$Dbname);
-   $Sql="INSERT INTO `bookstall`( `Bookcode`, `Booktitle`, `Author`, `Description`,`Price`,`Publisher`)
-    VALUES ($Bkcode,'$Bktitle','$Author','$Description',$Price,'$Publisher')";
+   $Sql="INSERT INTO `bookstall`( `Bookcode`, `Bookname`, `Author`, `Description`,`Price`,`Publisher`)
+    VALUES ($Bkcode,'$Bkname','$Author','$Description',$Price,'$Publisher')";
     $result=$connection->query($Sql);
     if($result===TRUE)
     {
