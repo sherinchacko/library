@@ -25,7 +25,7 @@
   </ul>
 </nav>
 <center> Welcome to the Update page...</center>
-<form method="GET">
+<form method="POST">
     <table class="table">
         <tr>
             <td>
@@ -53,9 +53,9 @@
 </body>
 </html>
 <?php
-if(isset($_GET["eeee"]))
+if(isset($_POST["eeee"]))
 {
-  $Bkcode=$_GET["getCode"];
+  $Bkcode=$_POST["getCode"];
   $Servername="localhost";
   $Dbusername="root";
   $Dbpassword="";

@@ -25,7 +25,7 @@
   </ul>
 </nav>
    <center> Welcome to search page:</center> 
-   <form method="GET">
+   <form method="POST">
    <table class="table">
        <tr>
            <td>
@@ -53,9 +53,9 @@
 </body>
 </html>
 <?php
-if(isset($_GET["submit"]))
+if(isset($_POST["submit"]))
 {
-    $Name=$_GET["getName"];
+    $Name=$_POST["getName"];
     $Servername="localhost";
     $Dbusername="root";
     $Dbpassword="";

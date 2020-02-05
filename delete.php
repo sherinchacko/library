@@ -25,7 +25,7 @@
           </ul>
     </nav>
     <center>Welcome To The Delete Page </center>
-    <form method="GET">
+    <form method="POST">
     <table class="table">
     <tr>
     <td>
@@ -50,9 +50,9 @@
 </body>
 </html>
 <?php
-if(isset($_GET["submit"]))
+if(isset($_POST["submit"]))
 {
-    $Bcode=$_GET["getCode"];
+    $Bcode=$_POST["getCode"];
     $Servername="localhost";
     $Dbusername="root";
     $Dbpassword="";
@@ -69,11 +69,11 @@ if(isset($_GET["submit"]))
         $Bkdes=$row["Description"];
         $Bkprice=$row["Price"];
         $Bkpub=$row["Publisher"];
-        echo"<form method='POST'><table class='table'> <tr> <td> Bookname </td> <td> $Bkname </td> </tr>
-        <tr> <td> Author </td> <td> $Bkauthor </td> </tr>
-        <tr> <td> Description </td> <td> $Bkdes </td> </tr>
-        <tr> <td> Price </td> <td> $Bkprice </td> </tr>
-        <tr> <td> Publisher </td> <td> $Bkpub</td> </tr>
+        echo"<form method='POST'><table class='table'> <tr> <td> Bookname </td> <td> <input type='text' name='mm' value='$Bkname' </td> </tr>
+        <tr> <td> Author </td> <td> <input type='text' name='nn' value='$Bkauthor' </td> </tr>
+        <tr> <td> Description </td> <td> <input type='text' name='bb' value='$Bkdes' </td> </tr>
+        <tr> <td> Price </td> <td> <input type='text' name='vv' value='$Bkprice' </td> </tr>
+        <tr> <td> Publisher </td> <td> <input type='text' name='cc' value='$Bkpub' </td> </tr>
         <tr> <td> <button type='submit' class='btn btn-danger' value='$Bcode' name='upbutton'> Delete </button> </td> </tr>
         </form>";
       }
@@ -97,7 +97,7 @@ if(isset($_POST["upbutton"]))
   $Dbpassword="";
   $Dbname="library";
   $connection=new mysqli($Servername,$Dbusername,$Dbpassword,$Dbname);
-  $Sql="DELETE FROM `bookstall` WHERE `Bookcode`=$Bcode";
+  $Sql="DELETE FROM `bookstall` WHERE `Bookcode`=$Givencode";
   $result=$connection->query($Sql);
   if($result===TRUE)
   {

@@ -24,7 +24,7 @@
               </li>
           </ul>
     </nav>
-    <form method="GET">
+    <form method="POST">
     <table class="table">
         <tr>
             <td>
@@ -89,20 +89,20 @@
 </body>
 </html>
 <?php
-if(isset($_GET["submit"]))
+if(isset($_POST["submit"]))
 {
-   $Bkcode=$_GET["getBookCode"];
-   $Bkname=$_GET["getName"];
-   $Author=$_GET["getAuthor"];
-   $Description=$_GET["getDescription"];
-   $Price=$_GET["getPrice"];
-   $Publisher=$_GET["getPublisher"];
+   $Bkcode=$_POST["getBookCode"];
+   $Bkname=$_POST["getName"];
+   $Author=$_POST["getAuthor"];
+   $Description=$_POST["getDescription"];
+   $Price=$_POST["getPrice"];
+   $Publisher=$_POST["getPublisher"];
    $Servername="localhost";
    $Dbusername="root";
    $Dbpassword="";
    $Dbname="library";
    $connection=new mysqli($Servername,$Dbusername,$Dbpassword,$Dbname);
-   $Sql="INSERT INTO `bookstall`( `Bookcode`, `Bookname`, `Author`, `Description`,`Price`,`Publisher`)
+    $Sql="INSERT INTO `bookstall`( `Bookcode`, `Bookname`, `Author`, `Description`,`Price`,`Publisher`)
     VALUES ($Bkcode,'$Bkname','$Author','$Description',$Price,'$Publisher')";
     $result=$connection->query($Sql);
     if($result===TRUE)
